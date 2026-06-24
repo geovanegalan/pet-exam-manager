@@ -5,8 +5,8 @@ export interface Owners {
   cpf: string;
   telefone: string;
   email: string;
-  endereço: string;
-  dataCadastro: string;
+  address: string;
+  registerDate: string;
 }
 
 //Animal
@@ -16,7 +16,7 @@ export interface Pet {
   specie: string;
   breed: string;
   age: number;
-  weigth: number;
+  weight: number;
   sex: 'M' | 'F';
   ownerId: string;
 }
@@ -30,7 +30,7 @@ export interface Appointment {
   examType: string;
   status: 'agendado' | 'confirmado' | 'cancelado' | 'realizado';
   observation: string;
-  creatAt: string;
+  createdAt: string;
 }
 
 //Exame
@@ -49,19 +49,19 @@ export interface Exam {
 // Estoque
 export interface Stock {
   id: string;
-  nomeMaterial: string;
-  quantidadeAtual: number;
-  quantidadeMinima: number;
-  unidade: string;
+  materialName: string;
+  currentAmount: number;
+  minAmount: number;
+  unit: string;
 }
 
 // Movimentação de Estoque
 export interface StockMovement {
   id: string;
   idMaterial: string;
-  idExame: string;
-  tipo: 'entrada' | 'saída';
-  quantidade: number;
-  motivo: string;
-  data: string;
+  idExam: string;
+  type: 'entrada' | 'saída';
+  amount: number;
+  cause: string;
+  date: string;
 }
