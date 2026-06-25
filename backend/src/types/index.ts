@@ -1,12 +1,12 @@
 //Dono
-export interface Owners {
+export interface Owner {
   id: string;
   name: string;
   cpf: string;
-  telefone: string;
+  tel: string;
   email: string;
   address: string;
-  registerDate: string;
+  createdAt: string;
 }
 
 //Animal
