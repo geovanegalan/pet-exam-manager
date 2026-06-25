@@ -1,4 +1,5 @@
 import express from 'express';
+import ownerRoutes from './routes/ownerRoutes';
 
 // Criamos a nossa aplicação
 const app = express();
@@ -9,7 +10,7 @@ const PORT = 3000;
 
 // Ensinamos o servidor a entender JSON
 app.use(express.json());
-
+app.use('/owners', ownerRoutes);
 // Criamos nossa primeira "rota" — o endereço de boas vindas
 app.get('/', (req, res) => {
   res.json({
