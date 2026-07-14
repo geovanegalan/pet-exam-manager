@@ -30,6 +30,8 @@ export interface Appointment {
   examType: string;
   status: 'agendado' | 'confirmado' | 'cancelado' | 'realizado';
   observation: string;
+  protocol: string;
+  cancelReason?: string;
   createdAt: string;
 }
 

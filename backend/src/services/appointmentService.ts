@@ -1,14 +1,3 @@
-// export interface Appointment {
-//   id: string;
-//   idPet: string;
-//   idOwner: string;
-//   date: string;
-//   examType: string;
-//   status: 'agendado' | 'confirmado' | 'cancelado' | 'realizado';
-//   observation: string;
-//   createdAt: string;
-// }
-
 import api from '../config/api';
 import { Appointment } from '../types/index';
 
@@ -22,10 +11,14 @@ export async function getAppointments(): Promise<Appointment[]> {
 }
 
 export async function createAppointment(
-  appointment: Omit<Appointment, 'id' | 'creatAt'>,
+  appointment: Omit<Appointment, 'id' | 'createdAt' | 'protocol'>,
 ): Promise<Appointment> {
   try {
-    const response = await api.post('/appointments', appointment);
+    const protocol = generateProtocol();
+    const response = await api.post('/appointments', {
+      ...appointment,
+      protocol,
+    });
     return response.data;
   } catch (error: unknown) {
     throw new Error(`Erro ao agendar: ${error}`);
@@ -33,10 +26,11 @@ export async function createAppointment(
 }
 
 export async function updateAppointment(
-  id: string,
+  protocol: string,
   appointmentData: Partial<Appointment>,
 ): Promise<Appointment> {
   try {
+    const id = (await getAppointmentByProtocol(protocol)).id;
     const response = await api.put(`/appointments/${id}`, appointmentData);
     return response.data;
   } catch (error: unknown) {
@@ -50,4 +44,48 @@ export async function deleteAppointment(id: string): Promise<void> {
   } catch (error: unknown) {
     throw new Error(`Erro ao deletar agendamento ${error}`);
   }
+}
+
+export async function cancelAppointment(
+  protocol: string,
+  cancelReason: string,
+): Promise<void> {
+  try {
+    const id = (await getAppointmentByProtocol(protocol)).id;
+    await api.put(`/appointments/${id}`, {
+      cancelReason,
+      status: 'cancelado',
+    });
+  } catch (error: unknown) {
+    throw new Error(`Erro ao cancelar agendamento: ${protocol}. ${error}`);
+  }
+}
+
+export async function getAppointmentByProtocol(
+  protocol: string,
+): Promise<Appointment> {
+  try {
+    const appointments = await getAppointments();
+    const appointment = appointments.find(
+      (appointment) => appointment.protocol === protocol,
+    );
+
+    if (!appointment) {
+      throw new Error(`Agendamento com protocolo ${protocol} não encontrado`);
+    }
+
+    return appointment;
+  } catch (error: unknown) {
+    throw error;
+  }
+}
+
+async function generateProtocol(): Promise<string> {
+  const appointments = await getAppointments();
+
+  if (!appointments.length) return '1000';
+
+  const protocols = appointments.map((p) => p.protocol);
+  const lastProtocol = Number(protocols[protocols.length - 1]) + 1;
+  return lastProtocol.toString();
 }
