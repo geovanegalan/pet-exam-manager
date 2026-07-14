@@ -46,7 +46,7 @@ export interface Exam {
   dateEnd: string;
   result: string;
   observation: string;
-  status: 'concluído' | 'em andamento';
+  status: 'concluído' | 'pendente';
 }
 
 export interface History {
@@ -54,9 +54,9 @@ export interface History {
   idDono: string;
   idPet: string;
   idAppointment: string;
-  status: string;
-  examStatus?: 'agendado' | 'confirmado' | 'cancelado' | 'realizado';
+  status: 'agendado' | 'confirmado' | 'cancelado' | 'realizado';
   createdAt: string;
+  examStatus: 'pendente' | 'realizado';
   petHistory?: string;
   protocol?: string;
   cancelReason?: string;
