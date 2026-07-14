@@ -30,11 +30,15 @@ export async function updateAppointment(
   appointmentData: Partial<Appointment>,
 ): Promise<Appointment> {
   try {
-    const id = (await getAppointmentByProtocol(protocol)).id;
+    const appointment = await getAppointmentByProtocol(protocol);
+    if (appointment.status === 'realizado')
+      throw new Error(`Erro ao atualizar agendamento`);
+
+    const id = appointment.id;
     const response = await api.put(`/appointments/${id}`, appointmentData);
     return response.data;
   } catch (error: unknown) {
-    throw new Error(`Erro ao atualizar agendamento: ${error}`);
+    throw error;
   }
 }
 
@@ -77,6 +81,17 @@ export async function getAppointmentByProtocol(
     return appointment;
   } catch (error: unknown) {
     throw error;
+  }
+}
+
+export async function accomplishAppointment(protocol: string): Promise<void> {
+  try {
+    const id = (await getAppointmentByProtocol(protocol)).id;
+    await api.put(`/appointments/${id}`, {
+      status: 'realizado',
+    });
+  } catch (erro: unknown) {
+    throw new Error(`Erro ao finalizar atendimento! ${erro}`);
   }
 }
 
