@@ -53,3 +53,17 @@ export async function deleteOwner(id: string): Promise<void> {
     throw new Error(`Erro ao apagar o usuario ${error}`);
   }
 }
+
+export async function getOwnerByCPF(cpf: string): Promise<Owner> {
+  try {
+    const response = await api.get(`/owners?cpf=${cpf}`);
+    const owners = response.data;
+
+    if (!owners[0]) {
+      throw new Error(`CPF ${cpf} não encontrado`);
+    }
+    return owners[0];
+  } catch (error: unknown) {
+    throw new Error(`Erro ao buscar owner ${cpf}: ${error}`);
+  }
+}
