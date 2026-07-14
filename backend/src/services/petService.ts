@@ -1,14 +1,3 @@
-// export interface Pet {
-//   id: string;
-//   name: string;
-//   specie: string;
-//   breed: string;
-//   age: number;
-//   weight: number;
-//   sex: 'M' | 'F';
-//   ownerId: string;
-// }
-
 import api from '../config/api';
 import { Pet } from '../types/index';
 
@@ -32,7 +21,7 @@ export async function getPetByID(id: string): Promise<Pet> {
 
 export async function createPet(pet: Omit<Pet, 'id'>): Promise<Pet> {
   try {
-    const response = await api.post('pets', pet);
+    const response = await api.post('/pets', pet);
     return response.data;
   } catch (error: unknown) {
     throw new Error(`Erro ao cadastrar pet: ${error}`);
@@ -70,6 +59,6 @@ export async function getPetByName(name: string): Promise<Pet[]> {
 
     return pets;
   } catch (error: unknown) {
-    throw new Error(`Erro ao buscar Pet ${name}, ${error}`);
+    throw error;
   }
 }
