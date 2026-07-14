@@ -19,6 +19,7 @@ export interface Pet {
   weight: number;
   sex: 'M' | 'F';
   ownerId: string;
+  history?: string[];
 }
 
 //Agendamento
@@ -45,7 +46,21 @@ export interface Exam {
   dateEnd: string;
   result: string;
   observation: string;
-  status: 'concluido' | 'em andamento';
+  status: 'concluído' | 'em andamento';
+}
+
+export interface History {
+  id: string;
+  idDono: string;
+  idPet: string;
+  idAppointment: string;
+  status: string;
+  examStatus?: 'agendado' | 'confirmado' | 'cancelado' | 'realizado';
+  createdAt: string;
+  petHistory?: string;
+  protocol?: string;
+  cancelReason?: string;
+  accomplishedAt?: string;
 }
 
 // Estoque
