@@ -33,7 +33,7 @@ export async function updatePet(
   petData: Partial<Pet>,
 ): Promise<Pet> {
   try {
-    const response = await api.put(`/pets/${id}`, petData);
+    const response = await api.patch(`/pets/${id}`, petData);
     return response.data;
   } catch (error: unknown) {
     throw new Error(`Erro ao atualizar Pet ${petData.name}, erro: ${error}`);
@@ -48,16 +48,16 @@ export async function deletePet(id: string): Promise<void> {
   }
 }
 
-export async function getPetByName(name: string): Promise<Pet[]> {
+export async function getPetByName(nome: string): Promise<Pet> {
   try {
-    const response = await api.get(`/pets?name=${name}`);
+    const response = await api.get(`/pets?nome=${nome}`);
     const pets = response.data;
 
-    if (!pets.length) {
-      throw new Error(`Nenhum pet com o nome ${name} foi encontrado!`);
+    if (!pets[0]) {
+      throw new Error(`Nenhum pet com o nome ${nome} foi encontrado!`);
     }
 
-    return pets;
+    return pets[0];
   } catch (error: unknown) {
     throw error;
   }
