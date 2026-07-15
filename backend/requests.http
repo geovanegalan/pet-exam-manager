@@ -1,3 +1,27 @@
 ### Buscar todos os owners
-GET http://localhost:3000/owners
+GET http://localhost:3000/owners/cpf/123.456.789-00
 Content-Type: application/json
+
+###
+POST http://localhost:3000/owners
+Content-Type: application/json
+
+{
+    "name": "Carlos Henrique",
+    "cpf": "123.545.779-45",
+    "tel": "(41) 99999-1231",
+    "email": "chenri@email.com",
+    "address": "Rua dos Macacos, 943"
+}
+
+###
+PATCH http://localhost:3000/owners/r3nNK_c
+Content-Type: application/json
+
+{
+    "tel": "(41) 4121-1111"
+}
+
+
+###
+DELETE http://localhost:3000/owners/r3nNK_c
