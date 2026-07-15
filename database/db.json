@@ -2,12 +2,12 @@
 	"owners": [
 		{
 			"id": "1",
-			"nome": "João Silva",
+			"name": "João Silva",
 			"cpf": "123.456.789-00",
-			"telefone": "(41) 99999-0001",
+			"tel": "(41) 99999-0001",
 			"email": "joao@email.com",
-			"endereco": "Rua das Flores, 123",
-			"dataCadastro": "2024-01-15T10:00:00.000Z"
+			"address": "Rua das Flores, 123",
+			"createdAt": "2024-01-15T10:00:00.000Z"
 		}
 	],
 	"pets": [

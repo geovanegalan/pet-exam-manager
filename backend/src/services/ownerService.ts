@@ -23,7 +23,10 @@ export async function createOwner(
   owner: Omit<Owner, 'id' | 'createdAt'>,
 ): Promise<Owner> {
   try {
-    const response = await api.post('/owners', owner);
+    const response = await api.post('/owners', {
+      ...owner,
+      createdAt: new Date().toISOString(),
+    });
 
     return response.data;
   } catch (error: unknown) {
@@ -36,7 +39,7 @@ export async function updateOwner(
   ownerData: Partial<Owner>,
 ): Promise<Owner> {
   try {
-    const response = await api.put(`/owners/${id}`, ownerData);
+    const response = await api.patch(`/owners/${id}`, ownerData);
 
     return response.data;
   } catch (error: unknown) {
