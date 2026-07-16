@@ -1,29 +1,28 @@
 ### Buscar todos os owners
-GET http://localhost:3000/pets/name/Juma Beatriz
+GET http://localhost:3000/appointments
 Content-Type: application/json
 
 ###
-POST http://localhost:3000/pets
-Content-Type: application/json
-
-{
-  "nome": "Lurdinha",
-  "especie": "Gato",
-  "raca": "Sem Raça",
-  "idade": 3,
-  "peso": 6,
-  "sexo": "F",
-  "idDono": "xPwq_G2"
-}
-
-###
-PATCH http://localhost:3000/pets/W27Rb2y
+POST http://localhost:3000/appointments
 Content-Type: application/json
 
 {
-    "peso":12
+    "idAnimal": "1",
+    "idDono": "1",
+    "dataHora": "2025-03-01T14:00:00.000Z",
+    "tipoExame": "Coleta",
+    "status": "confirmado",
+    "observacoesIniciais": "Animal brabo 2"
+  }
+
+###
+PATCH http://localhost:3000/appointments/cancel/1001
+Content-Type: application/json
+
+{
+  "cancelReason": "Dono viajou!"
 }
 
 
 ###
-DELETE http://localhost:3000/pets/W27Rb2y
+DELETE http://localhost:3000/appointments/2

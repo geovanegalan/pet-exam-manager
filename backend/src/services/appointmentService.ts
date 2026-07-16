@@ -14,7 +14,7 @@ export async function createAppointment(
   appointment: Omit<Appointment, 'id' | 'createdAt' | 'protocol'>,
 ): Promise<Appointment> {
   try {
-    const protocol = generateProtocol();
+    const protocol = await generateProtocol();
     const response = await api.post('/appointments', {
       ...appointment,
       protocol,
@@ -35,7 +35,7 @@ export async function updateAppointment(
       throw new Error(`Erro ao atualizar agendamento`);
 
     const id = appointment.id;
-    const response = await api.put(`/appointments/${id}`, appointmentData);
+    const response = await api.patch(`/appointments/${id}`, appointmentData);
     return response.data;
   } catch (error: unknown) {
     throw error;
@@ -56,8 +56,8 @@ export async function cancelAppointment(
 ): Promise<void> {
   try {
     const id = (await getAppointmentByProtocol(protocol)).id;
-    await api.put(`/appointments/${id}`, {
-      cancelReason,
+    await api.patch(`/appointments/${id}`, {
+      cancelReason: cancelReason,
       status: 'cancelado',
     });
   } catch (error: unknown) {
@@ -87,7 +87,7 @@ export async function getAppointmentByProtocol(
 export async function accomplishAppointment(protocol: string): Promise<void> {
   try {
     const id = (await getAppointmentByProtocol(protocol)).id;
-    await api.put(`/appointments/${id}`, {
+    await api.patch(`/appointments/${id}`, {
       status: 'realizado',
     });
   } catch (erro: unknown) {
@@ -99,7 +99,6 @@ async function generateProtocol(): Promise<string> {
   const appointments = await getAppointments();
 
   if (!appointments.length) return '1000';
-
   const protocols = appointments.map((p) => p.protocol);
   const lastProtocol = Number(protocols[protocols.length - 1]) + 1;
   return lastProtocol.toString();

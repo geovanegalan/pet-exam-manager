@@ -1,89 +1,113 @@
 {
-	"owners": [
-		{
-			"id": "1",
-			"name": "João Silva",
-			"cpf": "123.456.789-00",
-			"tel": "(41) 99999-0001",
-			"email": "joao@email.com",
-			"address": "Rua das Flores, 123",
-			"createdAt": "2024-01-15T10:00:00.000Z"
-		},
-		{
-			"name": "Maria Freitas",
-			"cpf": "113.455.459-12",
-			"tel": "(41) 99999-1231",
-			"email": "maria@email.com",
-			"address": "Rua das Orquideas, 1011",
-			"createdAt": "2026-07-15T22:06:29.819Z",
-			"id": "xPwq_G2"
-		}
-	],
-	"pets": [
-		{
-			"id": "1",
-			"nome": "Rex",
-			"especie": "Cachorro",
-			"raca": "Labrador",
-			"idade": 3,
-			"peso": 28.5,
-			"sexo": "M",
-			"idDono": "1"
-		},
-		{
-			"nome": "Lurdinha",
-			"especie": "Gato",
-			"raca": "Sem Raça",
-			"idade": 3,
-			"peso": 6,
-			"sexo": "F",
-			"idDono": "xPwq_G2",
-			"id": "i_AbpQP"
-		}
-	],
-	"appointments": [
-		{
-			"id": "1",
-			"idAnimal": "1",
-			"idDono": "1",
-			"dataHora": "2024-02-01T14:00:00.000Z",
-			"tipoExame": "Hemograma",
-			"status": "agendado",
-			"observacoesIniciais": "Animal em jejum de 8 horas",
-			"dataCriacao": "2024-01-20T09:00:00.000Z"
-		}
-	],
-	"exams": [
-		{
-			"id": "1",
-			"idAgendamento": "1",
-			"idAnimal": "1",
-			"idVeterinario": "vet-001",
-			"dataHoraInicio": "2024-02-01T14:05:00.000Z",
-			"dataHoraFim": "2024-02-01T14:30:00.000Z",
-			"resultado": "Todos os índices normais",
-			"observacoes": "Animal colaborativo durante coleta",
-			"status": "concluído"
-		}
-	],
-	"stocks": [
-		{
-			"id": "1",
-			"nomeMaterial": "Seringa 5ml",
-			"quantidadeAtual": 50,
-			"quantidadeMinima": 10,
-			"unidade": "unidade"
-		}
-	],
-	"stockMovements": [
-		{
-			"id": "1",
-			"idMaterial": "1",
-			"idExame": "1",
-			"tipo": "saída",
-			"quantidade": 2,
-			"motivo": "Coleta de sangue - Hemograma",
-			"data": "2024-02-01T14:05:00.000Z"
-		}
-	]
+  "owners": [
+    {
+      "id": "1",
+      "name": "João Silva",
+      "cpf": "123.456.789-00",
+      "tel": "(41) 99999-0001",
+      "email": "joao@email.com",
+      "address": "Rua das Flores, 123",
+      "createdAt": "2024-01-15T10:00:00.000Z"
+    },
+    {
+      "name": "Maria Freitas",
+      "cpf": "113.455.459-12",
+      "tel": "(41) 99999-1231",
+      "email": "maria@email.com",
+      "address": "Rua das Orquideas, 1011",
+      "createdAt": "2026-07-15T22:06:29.819Z",
+      "id": "xPwq_G2"
+    }
+  ],
+  "pets": [
+    {
+      "id": "1",
+      "nome": "Rex",
+      "especie": "Cachorro",
+      "raca": "Labrador",
+      "idade": 3,
+      "peso": 28.5,
+      "sexo": "M",
+      "idDono": "1"
+    },
+    {
+      "nome": "Lurdinha",
+      "especie": "Gato",
+      "raca": "Sem Raça",
+      "idade": 3,
+      "peso": 6,
+      "sexo": "F",
+      "idDono": "xPwq_G2",
+      "id": "i_AbpQP"
+    }
+  ],
+  "appointments": [
+    {
+      "idAnimal": "1",
+      "idDono": "1",
+      "dataHora": "2025-03-01T14:00:00.000Z",
+      "tipoExame": "Coleta",
+      "status": "realizado",
+      "observacoesIniciais": "Animal brabo",
+      "protocol": "1000",
+      "id": 1
+    },
+    {
+      "idAnimal": "1",
+      "idDono": "1",
+      "dataHora": "2025-03-01T14:00:00.000Z",
+      "tipoExame": "Coleta",
+      "status": "realizado",
+      "observacoesIniciais": "Animal brabo 2",
+      "protocol": "1001",
+      "id": 2,
+      "cancelReason": {
+        "cancelReason": "Dono viajou!"
+      }
+    },
+    {
+      "idAnimal": "1",
+      "idDono": "1",
+      "dataHora": "2025-03-01T14:00:00.000Z",
+      "tipoExame": "Coleta",
+      "status": "realizado",
+      "observacoesIniciais": "Animal brabo 2",
+      "protocol": "1002",
+      "id": 3,
+      "cancelReason": "Dono viajou!"
+    }
+  ],
+  "exams": [
+    {
+      "id": "1",
+      "idAgendamento": "1",
+      "idAnimal": "1",
+      "idVeterinario": "vet-001",
+      "dataHoraInicio": "2024-02-01T14:05:00.000Z",
+      "dataHoraFim": "2024-02-01T14:30:00.000Z",
+      "resultado": "Todos os índices normais",
+      "observacoes": "Animal colaborativo durante coleta",
+      "status": "concluído"
+    }
+  ],
+  "stocks": [
+    {
+      "id": "1",
+      "nomeMaterial": "Seringa 5ml",
+      "quantidadeAtual": 50,
+      "quantidadeMinima": 10,
+      "unidade": "unidade"
+    }
+  ],
+  "stockMovements": [
+    {
+      "id": "1",
+      "idMaterial": "1",
+      "idExame": "1",
+      "tipo": "saída",
+      "quantidade": 2,
+      "motivo": "Coleta de sangue - Hemograma",
+      "data": "2024-02-01T14:05:00.000Z"
+    }
+  ]
 }
