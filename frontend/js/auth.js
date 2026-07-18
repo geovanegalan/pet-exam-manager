@@ -20,7 +20,7 @@ form.addEventListener("submit", async (e) => {
 
 		localStorage.setItem("token", token);
 
-		window.location.href = "../pages/logado.html";
+		window.location.href = "../pages/cadastro.html";
 	} catch (error) {
 		Swal.fire("Email ou senha incorretos!");
 		console.error(error);
