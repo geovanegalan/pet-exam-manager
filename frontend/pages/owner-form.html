@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+		/>
+
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: "#005E82",
+							dark: "#12134F",
+							accent: "#7781E8",
+							light: "#81E8FF",
+							background: "#ECEEFF",
+						},
+					},
+				},
+			};
+		</script>
+		<link rel="stylesheet" href="../css/global.css" />
+		<link rel="stylesheet" href="../css/owner-form.css" />
+	</head>
+	<body
+		class="bg-background h-screen w-screen flex justify-center items-center"
+	>
+		<main class="container bg-accent/50 rounded-lg p-10 h-3/4 w-2/4">
+			<h1 class="text-4xl font-bold flex items-center gap-3 flex-wrap">
+				Insira os dados do dono
+				<span class="material-symbols-outlined text-4xl"> account_circle </span>
+			</h1>
+
+			<form
+				id="form-owner"
+				novalidate
+				class="my-5 grid grid-cols-1 md:grid-cols-4 gap-4"
+			>
+				<div class="col-span-1 md:col-span-2">
+					<label for="name">Nome:</label>
+
+					<input
+						type="text"
+						name="name"
+						id="name"
+						placeholder="Ex.: João Carlos"
+						class="w-full px-4 py-2 border border-light rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+					/>
+				</div>
+
+				<div class="col-span-1 md:col-span-2">
+					<label for="cpf">CPF:</label>
+
+					<input
+						type="text"
+						name="cpf"
+						id="cpf"
+						placeholder="000.000.000-00"
+						class="w-full px-4 py-2 border border-light rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+					/>
+				</div>
+
+				<div class="col-span-1 md:col-span-2">
+					<label for="email">E-mail:</label>
+
+					<input
+						type="text"
+						name="email"
+						id="email"
+						placeholder="juma@email.com"
+						class="w-full px-4 py-2 border border-light rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+					/>
+				</div>
+
+				<div class="col-span-1 md:col-span-2">
+					<label for="telefone">Telefone:</label>
+
+					<input
+						type="text"
+						name="telefone"
+						id="telefone"
+						placeholder="(00) 1234-5678"
+						class="w-full px-4 py-2 border border-light rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+					/>
+				</div>
+
+				<div class="col-span-1 md:col-span-1">
+					<label for="cep">CEP:</label>
+
+					<input
+						type="text"
+						name="cep"
+						id="cep"
+						placeholder="00000-000"
+						class="w-full px-4 py-2 border border-light rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+					/>
+				</div>
+
+				<div class="col-span-1 md:col-span-2">
+					<label for="rua">Rua:</label>
+
+					<input
+						type="text"
+						name="rua"
+						id="rua"
+						placeholder="Rua das Flores"
+						class="w-full px-4 py-2 border border-light rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+					/>
+				</div>
+
+				<div class="col-span-1 md:col-span-1">
+					<label for="numero">Número:</label>
+
+					<input
+						type="text"
+						name="numero"
+						id="numero"
+						placeholder="1234"
+						class="w-full px-4 py-2 border border-light rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+					/>
+				</div>
+
+				<div class="col-span-1 md:col-span-1">
+					<label for="complemento">Complemento:</label>
+
+					<input
+						type="text"
+						name="complemento"
+						id="complemento"
+						placeholder="1234"
+						class="w-full px-4 py-2 border border-light rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+					/>
+				</div>
+
+				<div class="col-span-1 md:col-span-1">
+					<label for="bairro">Bairro:</label>
+
+					<input
+						type="text"
+						name="bairro"
+						id="bairro"
+						placeholder="Primavera"
+						class="w-full px-4 py-2 border border-light rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+					/>
+				</div>
+
+				<div class="col-span-1 md:col-span-2">
+					<label for="cidade">Cidade:</label>
+
+					<input
+						type="text"
+						name="cidade"
+						id="cidade"
+						placeholder="1234"
+						class="w-full px-4 py-2 border border-light rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+					/>
+				</div>
+				<div class="flex justify-end col-span-4 gap-3">
+					<button type="reset" class="bg-background rounded-md p-3 w-1/4">
+						Limpar
+					</button>
+					<button
+						type="submit"
+						class="bg-primary text-white font-bold rounded-md p-3 w-1/4"
+					>
+						Salvar
+					</button>
+				</div>
+			</form>
+		</main>
+
+		<script src="../js/auth-guard.js"></script>
+	</body>
+</html>
+
+<!-- 
+  name: string;
+  cpf: string;
+  tel: string;
+  email: string;
+  address: string;
+} -->

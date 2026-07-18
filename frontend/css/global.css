@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Lexend:wght@100..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
+	font-family: "Libre Franklin", sans;
+	box-sizing: border-box;
+}
+
+:root {
+	--color-primary: #005e82;
+	--color-dark: #12134f;
+	--color-accent: #7781e8;
+	--color-light: #81e8ff;
+	--color-background: #eceeff;
+}
+
+h1 {
+	color: var(--color-dark);
+}
