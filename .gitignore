@@ -20,3 +20,6 @@ tailwind.config.js
 
 # Notes
 notes.txt
+
+#.env
+.env
