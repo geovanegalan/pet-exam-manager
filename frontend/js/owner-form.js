@@ -1,5 +1,9 @@
 const form = document.getElementById("form-owner");
 
+document.getElementById("cep").addEventListener("blur", () => {
+	const cepValue = document.getElementById("cep").value;
+	findCEP(cepValue);
+});
 form.addEventListener("submit", async (e) => {
 	e.preventDefault();
 	try {
