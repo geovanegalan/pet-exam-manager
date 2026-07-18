@@ -1,7 +1,9 @@
+import 'dotenv/config';
 import express from 'express';
 import ownerRoutes from './routes/ownerRoutes';
 import petRoutes from './routes/petRoutes';
 import appointmentRoutes from './routes/appointmentRoutes';
+import authRoutes from './routes/authRoutes';
 // Criamos a nossa aplicação
 const app = express();
 
@@ -13,7 +15,7 @@ app.use(express.json());
 app.use('/owners', ownerRoutes);
 app.use('/pets', petRoutes);
 app.use('/appointments', appointmentRoutes);
-
+app.use('/auth', authRoutes);
 // Criamos nossa primeira "rota", o endereço de boas vindas
 app.get('/', (req, res) => {
   res.json({
