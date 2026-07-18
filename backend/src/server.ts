@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
+import cors from 'cors';
 import ownerRoutes from './routes/ownerRoutes';
 import petRoutes from './routes/petRoutes';
 import appointmentRoutes from './routes/appointmentRoutes';
@@ -9,6 +10,12 @@ import { authMiddleware } from './middlewares/authMiddleware';
 const app = express();
 
 const PORT = 3000;
+
+app.use(
+  cors({
+    origin: '*',
+  }),
+);
 
 // Ensinamos o servidor a entender JSON
 app.use(express.json());
