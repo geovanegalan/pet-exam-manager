@@ -18,6 +18,16 @@ form.addEventListener("submit", async (e) => {
 			return;
 		}
 
+		const cpf = document.getElementById("cpf").value;
+		if (!validateCPF(cpf)) {
+			Swal.fire({
+				icon: "error",
+				title: "CPF inválido!",
+				text: "Por favor verifique o CPF digitado",
+			});
+			return;
+		}
+
 		const owner = {
 			name: document.getElementById("name").value,
 			cpf: document.getElementById("cpf").value,
