@@ -20,5 +20,5 @@ function sanitizeCPF(cpf) {
 	return cpf.replace(/\D/g, "");
 }
 function sanitizeTel(tel) {
-	tel: owner.tel.replace(/\D/g, "");
+	tel: tel.replace(/\D/g, "");
 }
