@@ -1,5 +1,5 @@
 const form = document.getElementById("form-login");
-const BASE_URL = "http://localhost:3000";
+const BASE_URL_LOGIN = "http://localhost:3000";
 
 form.addEventListener("submit", async (e) => {
 	try {
@@ -11,7 +11,7 @@ form.addEventListener("submit", async (e) => {
 		const email = document.getElementById("email").value;
 		const password = document.getElementById("password").value;
 
-		const response = await axios.post(`${BASE_URL}/auth/login`, {
+		const response = await axios.post(`${BASE_URL_LOGIN}/auth/login`, {
 			email,
 			password,
 		});
