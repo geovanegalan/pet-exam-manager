@@ -8,7 +8,6 @@ import {
   getAppointments,
   updateAppointment,
 } from '../services/appointmentService';
-import { error } from 'node:console';
 
 const router = Router();
 

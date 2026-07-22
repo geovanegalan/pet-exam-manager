@@ -15,3 +15,14 @@ async function apiGet(endpoint) {
 		},
 	});
 }
+
+axios.interceptors.response.use(
+	(response) => response,
+	(error) => {
+		if (error.response?.status === 401) {
+			localStorage.removeItem("token");
+			window.location.href = "../pages/login.html";
+		}
+		return Promise.reject(error);
+	},
+);
