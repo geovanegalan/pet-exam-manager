@@ -62,3 +62,9 @@ table.addEventListener("click", async (e) => {
 		});
 	}
 });
+
+function closeModal() {
+	modal.classList.add("hidden");
+}
+
+document.getElementById("close-modal").addEventListener("click", closeModal);
